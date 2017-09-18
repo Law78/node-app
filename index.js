@@ -1,14 +1,18 @@
 const express         = require('express');
 const passport        = require('passport');
 const GoogleStrategy  = require('passport-google-oauth20').Strategy;
-const config          = require('./config');
+
+process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
+const config = require('./config/env.'+process.env.NODE_ENV+ '.json');
+
+console.log(config);
 
 const app = express();
 
 passport.use(
   new GoogleStrategy({
-    clientID: process.env.googleClientId || config.keys.google.googleClientId,
-    clientSecret: process.env.googleClientSecret || config.keys.google.googleClientSecret,
+    clientID: process.env.googleClientId || config.google.googleClientId,
+    clientSecret: process.env.googleClientSecret || config.google.googleClientSecret,
     callbackURL: '/auth/google/callback'
   }, accessToken => {
     console.log(accessToken);
