@@ -9,8 +9,8 @@
   },
   "scripts": {
     "test-local": "./node_modules/.bin/mocha --reporter spec",
-    "test": "./node_modules/.bin/mocha test/*-test.js -w",
-    "test:single": "./node_modules/.bin/mocha test/*-test.js",
+    "test": "./node_modules/.bin/mocha test/*.test.js -w",
+    "test:single": "./node_modules/.bin/mocha test/*.test.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "commit" : "git-cz"
   },
