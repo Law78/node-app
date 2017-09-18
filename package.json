@@ -10,17 +10,21 @@
   "scripts": {
     "test-local": "./node_modules/.bin/mocha --reporter spec",
     "test": "./node_modules/.bin/mocha test/*.test.js -w",
-    "test:single": "./node_modules/.bin/mocha test/*.test.js",
+    "test:single": "istanbul cover -x *.test.js _mocha -- -R spec spec test/*.test.js",
+    "check-coverage": "istanbul check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "commit" : "git-cz"
+    "commit": "git-cz"
   },
   "author": "Lorenzo Franceschini <l.franceschini@gmail.com> (http://www.lorenzofranceschini.com)",
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.1.2",
+    "codecov.io": "^0.1.6",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.0.0",
     "express": "^4.15.4",
+    "istanbul": "^0.4.5",
     "mocha": "^3.5.3",
     "request": "^2.81.0",
     "semantic-release": "^8.0.0"
