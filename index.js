@@ -9,15 +9,15 @@ const app = express();
 
 passport.use(
   new GoogleStrategy({
-    clientID: googleClientId || config.google.googleClientId,
-    clientSecret: googleClientSecret || config.google.googleClientSecret,
+    clientID: process.env.googleClientId || config.google.googleClientId,
+    clientSecret: process.env.googleClientSecret || config.google.googleClientSecret,
     callbackURL: '/auth/google/callback'
   }, accessToken => {
     console.log(accessToken);
   })
 );
 
-const PORT = PORT || config.server.PORT;
+const PORT = process.env.PORT || config.server.PORT;
 const fake_obj = require('./fake_db/fake_obj');
 
 app.get('/', (req, res) => {
