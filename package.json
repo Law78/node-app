@@ -26,6 +26,8 @@
     "express": "^4.15.4",
     "istanbul": "^0.4.5",
     "mocha": "^3.5.3",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0",
     "request": "^2.81.0",
     "semantic-release": "^8.0.0"
   },
