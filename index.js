@@ -5,21 +5,19 @@ const GoogleStrategy  = require('passport-google-oauth20').Strategy;
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 const config = require('./config/env.'+process.env.NODE_ENV+ '.json');
 
-console.log(config);
-
 const app = express();
 
 passport.use(
   new GoogleStrategy({
-    clientID: process.env.googleClientId || config.google.googleClientId,
-    clientSecret: process.env.googleClientSecret || config.google.googleClientSecret,
+    clientID: googleClientId || config.google.googleClientId,
+    clientSecret: googleClientSecret || config.google.googleClientSecret,
     callbackURL: '/auth/google/callback'
   }, accessToken => {
     console.log(accessToken);
   })
 );
 
-const PORT = process.env.PORT || config.server.PORT;
+const PORT = PORT || config.server.PORT;
 const fake_obj = require('./fake_db/fake_obj');
 
 app.get('/', (req, res) => {
