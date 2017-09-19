@@ -1,6 +1,6 @@
 {
-  "name": "app",
-  "version": "0.0.0-development",
+  "name": "node-app",
+  "version": "0.0.0-semantic-release",
   "description": "",
   "main": "index.js",
   "engine": {
