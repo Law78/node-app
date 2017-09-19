@@ -1,20 +1,27 @@
 language: node_js
 cache:
   directories:
-    - node_modules
+  - node_modules
 notifications:
   email: false
 node_js:
-  - '7'
-  - '6'
-  - '4'
+- '7'
+- '6'
+- '4'
 before_script:
-  - npm prune
+- npm prune
 script:
-  - NODE_ENV=production npm run test:single
+- NODE_ENV=production npm run test:single
 after_success:
-  - npm run report-coverage
-  - npm run semantic-release
+- npm run report-coverage
+- npm run semantic-release
 branches:
   except:
-    - /^v\d+\.\d+\.\d+$/
+  - "/^v\\d+\\.\\d+\\.\\d+$/"
+deploy:
+  provider: npm
+  email: l.franceschini@gmail.com
+  api_key:
+    secure: NkBkshWsXr3ft6WYpeW/Jy0eeQPz1c/3lN33ZEP7ihkzLbRBV+pXv5J3ZQdfeXqWxkh/L1ipAFpyllOmra8uC260kTuDBD5TOWUYaGLqVbn8uLnqU2XqtFnkMbTwXMuZ9IweRKxPWANLFwiWGF1Eg9a6SdJVG/pXQd6RoJbrqBbJBkvxQN5OZgghMCiLVFYLFwCi3VIBYkjnEThYtkCzFqDVvPudLFKO3V9IVurODvcuWBKwKMPTyv3/qUUYQDU1MjId+QEeaEkGGt8QX/J0D3dmeDkwL9579vy0HCpBq8muGqIGuWFj+VpnmCvJF0t/oI5KGV4ODi7DzNv/qOOHn9JPN9yqa9RnWSnrmpQ8FlmN3LLszElbeuzgRWskd2Hyp9mzA2onRsNzOfOFvoe87P/HOx06iXuD33FOJ25GOp52vd07tW98pb18XcluFALFiOPROKdzT91C0Iv4tffSz7RrtFNSxHrSSMjDZpz3D1BAqRLuFuX/apso5jkfQaw3HKg7nNOvFdUGuqsRDDDcPmkrmBxFqVEPAgMI+PMw7XeT3PLHBcHP01zMdMIMmnXxjlXC+ZyQQfa0YajHif06uUGypH8yZIE0gJ4InJfu2Fx1UVYMSsi8NkKmkwlIDNwtkIcpRqg2+GTkDd/vLZXZnyNZbygEG6rBqFxR95BW1wo=
+  on:
+    repo: Law78/node-app
