@@ -1,6 +1,6 @@
 {
   "name": "law78-node-app",
-  "version": "0.0.0-semantic-release",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "engine": {
@@ -8,6 +8,8 @@
     "npm": "5.1.2"
   },
   "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "test-local": "./node_modules/.bin/mocha --reporter spec",
     "test": "./node_modules/.bin/mocha test/*.test.js -w",
     "test:single": "istanbul cover -x *.test.js _mocha -- -R spec spec test/*.test.js",
