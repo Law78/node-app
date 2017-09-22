@@ -1,9 +1,9 @@
 module.exports = {
   ordine: 1000,
   cliente: {
-    nome:'Lorenzo',
-    cognome: 'Franceschini',
-    eta: 39
+    nome:'Rossella',
+    cognome: 'Sagliocca',
+    eta: 41
   },
   consegna: {
     indirizzo: 'Via della Regione',
